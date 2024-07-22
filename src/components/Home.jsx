@@ -80,7 +80,7 @@ export default function Home() {
               <option value="europe">Europe</option>
               <option value="oceania">Oceania</option>
               <option value="america">America</option>
-              <option value="africa">Africa</option>
+              {/* <option value="africa">Africa</option> */}
             </select>
           </div>
         </div>
