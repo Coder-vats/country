@@ -1,85 +1,103 @@
-*{
-
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     background-color: black;
     color: aliceblue;
-}
-
-.info{
-    text-align: center
-}
-
-
-
-img{
+  }
+  
+  .info {
+    text-align: center;
+  }
+  
+  img {
     height: 150px;
     width: 20vw;
-}
-
-.card{
-   
+  }
+  
+  .card {
     padding: 1vw;
     display: flex;
     gap: 5vw;
     flex-wrap: wrap;
     row-gap: 25px;
-}
-
-.heading{
+  }
+  
+  .heading {
     padding: 10px 0;
     text-align: center;
     background-color: black;
     color: aliceblue;
-    border:1px solid white;
-}
-
-
-
-.country-card h3,h5{
+    border: 1px solid white;
+  }
+  
+  .country-card h3, h5 {
     background-color: grey;
-}
-
-form input {
+  }
+  
+  form input {
     height: 30px;
     width: 20vw;
     border: 1px solid wheat;
     padding: 10px;
-}
-
-.search{
+  }
+  
+  .search {
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-between;
-    
-    
-
-
-}
-.search .back{
+  }
+  
+  .search .back {
     margin-left: 5vw;
     width: 130px;
     padding: 10px;
     border: 1px solid wheat;
-}
-.input{
+  }
+  
+  .input {
     display: flex;
-}
-.search .go{
+    position: relative;
+  }
+  
+  .search .go {
     margin-left: 1vw;
     width: 76px;
     border: 1px solid wheat;
     height: 30px;
-}
-
-.drop{
+  }
+  
+  .drop {
     display: flex;
     margin-right: 50px;
-}
-.drop label{
+  }
+  
+  .drop label {
     font-size: 14px;
     height: 24px;
     width: 75px;
-}
+  }
+  
+  .autocomplete {
+    list-style: none;
+    border: 1px solid #ccc;
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    top:33px;
+  }
+  
+  .autocomplete li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .autocomplete li:hover {
+    background-color: grey;
+  }
+  

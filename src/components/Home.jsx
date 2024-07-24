@@ -6,6 +6,7 @@ export default function Home() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("");
   const [region, setRegion] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const getAllCountries = async () => {
     try {
@@ -34,6 +35,20 @@ export default function Home() {
       }
 
       setCountry("");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setCountry(value);
+
+    if (value.length > 0) {
+      const filteredSuggestions = countries.filter((c) =>
+        c.name.common.toLowerCase().startsWith(value.toLowerCase())
+      );
+      setSuggestions(filteredSuggestions);
+    } else {
+      setSuggestions([]);
     }
   };
 
@@ -67,10 +82,26 @@ export default function Home() {
                 type='text'
                 value={country}
                 placeholder="Enter Country......."
-                onChange={(e) => setCountry(e.target.value)}
+                onChange={handleInputChange}
               />
               <button className="go" type="submit"><FaSearch /></button>
             </form>
+            
+            {suggestions.length > 0 && (
+              <ul className='autocomplete'>
+                {suggestions.map((suggestion, index) => (
+                  <li
+                    key={index}
+                    onClick={() => {
+                      setCountry(suggestion.name.common);
+                      setSuggestions([]);
+                    }}
+                  >
+                    {suggestion.name.common}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           <div className='drop'>
@@ -85,7 +116,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
+
       <div className='countries'>
         {<Card countries={countries} />}
       </div>
